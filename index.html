@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>津味 · 二日 · 天津国庆休闲攻略</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--chill:#5fa886;--mid:#d4a944;--heavy:#c86e4a;--ink:#2b3d5c;--paper:#f9f5ec;--gold:#8b6914;--river:#4a7ba6}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:#2b2b2b;background:var(--paper);background-image:radial-gradient(circle at 10% 20%,rgba(74,123,166,.06) 0,transparent 40%),radial-gradient(circle at 90% 80%,rgba(212,169,68,.06) 0,transparent 40%);line-height:1.75;-webkit-font-smoothing:antialiased}
+.hero{background:linear-gradient(135deg,#2b3d5c 0%,#4a7ba6 55%,#7ba8c4 100%);color:#f9f5ec;padding:90px 24px 110px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(212,169,68,.2),transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.1),transparent 50%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(180deg,transparent,var(--paper));pointer-events:none}
+.hero h1{font-size:56px;font-weight:700;letter-spacing:6px;margin-bottom:18px;font-family:"Songti SC","STSong",serif;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.2)}
+.hero .sub{font-size:15px;opacity:.85;letter-spacing:8px;font-weight:300;position:relative}
+.hero .deco{width:60px;height:2px;background:#d4a944;margin:28px auto;position:relative}
+.hero .meta{margin-top:8px;display:inline-flex;gap:36px;padding:18px 40px;background:rgba(255,255,255,.1);border-radius:100px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);position:relative;font-size:15px;letter-spacing:2px;flex-wrap:wrap;justify-content:center}
+.skyline{position:absolute;bottom:60px;left:0;right:0;height:80px;opacity:.18;pointer-events:none}
+.skyline svg{width:100%;height:100%}
+.container{max-width:1080px;margin:-60px auto 0;padding:0 24px 60px;position:relative;z-index:2}
+.card{background:#fff;border-radius:20px;padding:44px;box-shadow:0 10px 40px rgba(43,61,92,.08);margin-bottom:24px;position:relative}
+.card+.card::before{content:"❋";position:absolute;top:-16px;left:50%;transform:translateX(-50%);color:var(--mid);background:var(--paper);padding:0 12px;font-size:14px;opacity:.5}
+.overview h2,.day h3{font-family:"Songti SC","STSong",serif;color:var(--ink)}
+.overview h2{font-size:30px;margin-bottom:12px;letter-spacing:2px}
+.overview .lead{color:#555;font-size:15px;margin-bottom:28px;line-height:1.9}
+.timeline{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.tl-day{background:linear-gradient(180deg,#eaf1f7,#d5e2ee);padding:22px 16px;border-radius:12px;text-align:center;border:1px solid #c3d5e5;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.tl-day::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--mid)}
+.tl-day.c1::before{background:var(--chill)}
+.tl-day.c2::before{background:var(--river)}
+.tl-day:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(43,61,92,.12)}
+.tl-day .d{font-weight:700;color:var(--ink);font-size:18px;letter-spacing:1px;margin-top:4px}
+.tl-day .w{color:var(--gold);font-size:12px;margin-top:2px;letter-spacing:1px}
+.tl-day .t{color:#3d3d3d;margin-top:10px;font-size:13px;font-weight:600;line-height:1.5}
+.day{position:relative;border-left:5px solid var(--mid);padding-left:44px;overflow:hidden}
+.day::before{content:"";position:absolute;left:-14px;top:44px;width:22px;height:22px;background:var(--mid);border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 2px var(--mid),0 0 20px rgba(212,169,68,.4)}
+.day::after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(212,169,68,.08),transparent 70%);pointer-events:none}
+.day-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;flex-wrap:wrap;gap:12px;padding-bottom:18px;border-bottom:2px dashed rgba(212,169,68,.25)}
+.day-head .num{color:var(--mid);font-size:13px;font-weight:700;letter-spacing:4px;margin-bottom:6px;display:inline-block;padding:3px 12px;background:rgba(212,169,68,.12);border-radius:4px}
+.day-head h3{font-size:28px;letter-spacing:2px;margin-top:4px}
+.day-head .date{color:#888;font-size:13px;margin-top:8px;letter-spacing:2px}
+.day-head .date::before{content:"▸ ";color:var(--mid)}
+.wx{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;background:linear-gradient(135deg,#eaf3f7 0%,#d5e5ee 60%,#e8f0e5 100%);border-radius:14px;padding:20px 24px;margin:20px 0 22px;border:1px solid #c3d9e5;position:relative;overflow:hidden;box-shadow:0 3px 12px rgba(90,114,128,.08)}
+.wx::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--chill),var(--river))}
+.wx::after{content:"☁";position:absolute;right:14px;top:8px;font-size:52px;opacity:.1;color:#5a7280}
+.wx-t{font-family:"Songti SC",serif;color:var(--ink);font-size:32px;font-weight:700;line-height:1;letter-spacing:1px;white-space:nowrap;position:relative}
+.wx-t small{font-size:14px;color:#666;font-weight:400;letter-spacing:0}
+.wx-info{font-size:13.5px;color:#3d3d3d;line-height:1.75;position:relative}
+.wx-info b{color:var(--gold)}
+.wx-info .cond{color:#5a7280;font-weight:600;letter-spacing:1.5px;margin-bottom:4px;font-size:12px;display:inline-block;padding:3px 10px;background:rgba(255,255,255,.5);border-radius:100px}
+.sec{margin:22px 0;position:relative}
+.sec-t{font-size:11px;color:#fff;font-weight:700;letter-spacing:4px;margin-bottom:14px;display:inline-block;padding:5px 14px;background:linear-gradient(90deg,var(--gold),#b48920);border-radius:3px;box-shadow:0 2px 6px rgba(139,105,20,.2)}
+.sec p,.sec li{color:#3d3d3d;font-size:15px}
+.sec ul{list-style:none;background:linear-gradient(90deg,rgba(212,169,68,.04),transparent);border-radius:8px;padding:8px 12px}
+.sec li{padding:6px 0 6px 24px;position:relative}
+.sec li::before{content:"◈";position:absolute;left:0;color:var(--mid);font-size:12px;top:9px}
+.sec li b{color:var(--ink);font-weight:600;background:linear-gradient(180deg,transparent 65%,rgba(212,169,68,.25) 65%);padding:0 2px}
+.itin{display:grid;grid-template-columns:80px 1fr;gap:0;position:relative;padding-left:4px;background:linear-gradient(90deg,rgba(43,61,92,.03),transparent);border-radius:8px;overflow:hidden}
+.itin::before{content:"";position:absolute;left:84px;top:12px;bottom:12px;width:2px;background:linear-gradient(180deg,var(--mid),transparent);opacity:.4}
+.itin dt{color:var(--mid);font-weight:700;font-size:13px;letter-spacing:1px;padding:11px 12px 11px 8px;border-top:1px solid #f0e8d0;position:relative;text-align:right}
+.itin dt::after{content:"●";position:absolute;right:-6px;top:50%;transform:translateY(-50%);color:var(--mid);font-size:10px;background:#fff;padding:0 2px;z-index:1}
+.itin dd{font-size:14.5px;color:#3d3d3d;line-height:1.7;padding:11px 4px 11px 20px;border-top:1px solid #f0e8d0}
+.itin dd b{color:var(--ink);font-weight:600}
+.itin dt:first-of-type,.itin dd:first-of-type{border-top:none;padding-top:8px}
+.eats{background:linear-gradient(135deg,#fff5ec,#fce4d0);border-radius:12px;padding:16px 20px;margin:14px 0;border:1px dashed #d99a6c;position:relative}
+.eats::before{content:"🥟";position:absolute;top:-14px;left:16px;background:#fff;padding:2px 8px;border-radius:100px;font-size:15px;box-shadow:0 2px 6px rgba(217,154,108,.2)}
+.eats-t{color:#a04f1e;font-weight:700;font-size:12px;letter-spacing:2px;margin:2px 0 8px 34px;display:inline-block}
+.eats ul{list-style:none;padding:0;background:transparent}
+.eats li{color:#5c3a20;font-size:14px;padding:3px 0 3px 18px;position:relative}
+.eats li::before{content:"◆";position:absolute;left:0;color:#d99a6c;font-size:10px;top:8px}
+.eats li b{color:#8b3a1e;background:linear-gradient(180deg,transparent 65%,rgba(217,154,108,.35) 65%);padding:0 2px}
+.metro{background:linear-gradient(135deg,#e8f1ec,#d0e0d5);border-radius:12px;padding:14px 20px;margin:14px 0;border-left:5px solid var(--chill);position:relative;font-size:14px;color:#2d4a37;line-height:1.85}
+.metro::before{content:"🚇";position:absolute;top:-12px;left:14px;background:#fff;padding:2px 8px;border-radius:100px;font-size:14px;box-shadow:0 2px 6px rgba(95,168,134,.2)}
+.metro b{color:var(--ink);font-weight:700}
+.metro .line1{color:#fff;background:#e6002d;padding:1px 8px;border-radius:100px;font-size:12px;font-weight:700;margin:0 2px;letter-spacing:0}
+.metro .line2{color:#fff;background:#0075c1;padding:1px 8px;border-radius:100px;font-size:12px;font-weight:700;margin:0 2px}
+.metro .line3{color:#fff;background:#f7a600;padding:1px 8px;border-radius:100px;font-size:12px;font-weight:700;margin:0 2px}
+.metro .line6{color:#fff;background:#8b4996;padding:1px 8px;border-radius:100px;font-size:12px;font-weight:700;margin:0 2px}
+.transport{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.transport-card{background:linear-gradient(135deg,#f0f5f9,#dde7f0);border-radius:12px;padding:16px 20px;border:1px solid #c3d5e5;position:relative}
+.transport-card h5{color:var(--ink);font-size:14px;letter-spacing:2px;margin-bottom:8px;font-family:'Songti SC',serif}
+.transport-card .badge{display:inline-block;padding:2px 10px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.transport-card .b-drive{background:#c86e4a;color:#fff}
+.transport-card .b-train{background:#4a7ba6;color:#fff}
+.transport-card p{font-size:13px;color:#3d3d3d;line-height:1.7}
+.transport-card b{color:var(--ink)}
+.tip{background:linear-gradient(135deg,#fdf6e3,#faedc5);border-radius:10px;padding:16px 20px 16px 46px;margin-top:18px;font-size:14px;color:#6b5b23;border-left:4px solid var(--mid);line-height:1.75;position:relative;box-shadow:0 2px 8px rgba(212,169,68,.08)}
+.tip::before{content:"💡";position:absolute;left:16px;top:14px;font-size:18px;background:#fff;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;box-shadow:0 2px 4px rgba(139,105,20,.15)}
+.footer-tips{background:linear-gradient(135deg,#2b3d5c 0%,#4a7ba6 100%);color:#f9f5ec;border-radius:20px;padding:48px 44px;margin-top:12px;position:relative;overflow:hidden}
+.footer-tips::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 10%,rgba(212,169,68,.2),transparent 40%);pointer-events:none}
+.footer-tips h2{font-family:"Songti SC",serif;margin-bottom:32px;font-size:28px;letter-spacing:3px;position:relative}
+.tip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;position:relative}
+.tip-card{background:rgba(255,255,255,.08);padding:22px;border-radius:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1)}
+.tip-card h4{color:#d4a944;font-size:14px;margin-bottom:10px;letter-spacing:3px;font-weight:700}
+.tip-card p{font-size:13.5px;line-height:1.8;opacity:.92}
+footer{text-align:center;padding:30px;color:#999;font-size:13px;letter-spacing:2px}
+@media(max-width:768px){
+.hero{padding:60px 20px 80px}.hero h1{font-size:36px;letter-spacing:3px}
+.hero .meta{flex-direction:column;gap:10px;padding:14px 24px}
+.container{padding:0 16px 40px}.card{padding:28px 22px;border-radius:16px}
+.day{padding-left:26px;border-left-width:4px}.day::before{left:-10px;width:16px;height:16px;border-width:4px;top:32px}
+.day-head h3{font-size:22px}.footer-tips{padding:32px 24px}
+.wx{grid-template-columns:1fr;text-align:left}.wx-t{font-size:26px}
+.itin{grid-template-columns:60px 1fr;gap:10px}
+.transport{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>津味 · 二日</h1>
+  <div class="sub">A TWO-DAY WEEKEND IN TIANJIN</div>
+  <div class="deco"></div>
+  <div class="meta">
+    <span>📅 10.02 – 10.03</span>
+    <span>🚄 高碑店出发</span>
+    <span>🥟 洋楼 · 海河</span>
+  </div>
+  <div class="skyline"><svg viewBox="0 0 1200 100" preserveAspectRatio="none"><path fill="#f9f5ec" d="M0,100 L0,70 L50,68 L60,55 L70,68 L120,68 L130,45 L140,68 L200,68 L210,50 L230,68 L280,68 L290,30 L295,25 L300,30 L310,68 L380,68 L390,55 L410,68 L470,68 L480,40 L500,68 L560,68 L570,55 L590,68 L640,68 L650,20 L660,15 L670,20 L680,68 L740,68 L750,50 L770,68 L820,68 L830,45 L850,68 L910,68 L920,55 L940,68 L1000,68 L1010,35 L1020,30 L1030,35 L1040,68 L1100,68 L1110,55 L1130,68 L1200,68 L1200,100 Z"/></svg></div>
+</div>
+<div class="container">
+
+<section class="card overview">
+  <h2>行程概览</h2>
+  <p class="lead">从保定高碑店出发,天津 2 日休闲局。10 月 2 号是重点,上午到,下午五大道 + 意风区,晚上海河夜游。10 月 3 号古文化街 + 瓷房子 + 滨江道,傍晚返程。不赶景点,主打洋楼咖啡 + 津派早点 + 海河风景。</p>
+  <div class="timeline">
+    <div class="tl-day c1"><div class="d">10.02</div><div class="w">SUN · 重 点</div><div class="t">高碑店→天津<br>五大道 · 意风区 · 海河夜游</div></div>
+    <div class="tl-day c2"><div class="d">10.03</div><div class="w">MON · 收 尾</div><div class="t">古文化街 · 瓷房子 · 滨江道<br>返 保 定</div></div>
+  </div>
+</section>
+
+<section class="card day">
+  <div class="day-head">
+    <div><div class="num">DAY 01</div><h3>洋楼 · 海河 · 意风夜色</h3><div class="date">10月2日 · 周日 · 重点日</div></div>
+  </div>
+  <div class="wx">
+    <div class="wx-t">22°<small>/</small>13°<small>C</small></div>
+    <div class="wx-info"><div class="cond">天津 · 多云 · 秋高气爽</div><b>穿搭:</b> 长袖 T + 薄开衫/风衣,长裤,舒适步行鞋。海河边晚风凉,备一件薄外套。拍照日,穿点<b>民国风/复古</b>在五大道出片。</div>
+  </div>
+  <div class="sec"><div class="sec-t">— 出 发 · 二 选 一 —</div>
+    <div class="transport">
+      <div class="transport-card">
+        <span class="badge b-train">🚄 高铁</span>
+        <h5>高碑店东 → 天津西</h5>
+        <p><b>C2582 · 08:56 → 10:00</b>(1h4min · 参考)<br><b>票价</b> 约 60 元<br><b>推荐</b> 京津冀城际,班次多,天津西距市中心近</p>
+      </div>
+      <div class="transport-card">
+        <span class="badge b-drive">🚗 自驾</span>
+        <h5>高碑店 → 天津</h5>
+        <p><b>京沪高速 + 荣乌高速</b>约 <b>2h30min</b> · 250km<br><b>油费+过路</b>约 200 元<br><b>停车</b> 意风区/五大道均有付费停车场,10 元/h</p>
+      </div>
+    </div>
+  </div>
+  <div class="metro"><b>天津西站 → 五大道</b> · <span class="line1">1号线</span> 天津西站 → 小白楼 · 20min · 或打车 15min 20 元。<br><b>五大道 → 意风区</b> · 打车 15min 15 元 · 或 <span class="line3">3号线</span> 小白楼 → 建国道。<br><b>意风区 → 天津站</b>(海河游船码头) · 步行 10min 直达。</div>
+  <div class="sec"><div class="sec-t">— 一 日 时 刻 —</div>
+    <dl class="itin">
+      <dt>08:00</dt><dd>高碑店出发(自驾)/ 高碑店东站候车(高铁)</dd>
+      <dt>10:00</dt><dd>抵天津 · 天津西/自驾直达酒店</dd>
+      <dt>10:30</dt><dd>酒店 <b>check-in</b> 或行李寄存,轻装出门</dd>
+      <dt>11:00</dt><dd><b>早午餐 · 津派早点</b> · 见下方吃货块</dd>
+      <dt>12:30</dt><dd><b>五大道</b>漫步 · 天津英租界民国建筑群 · 睦南道 + 马场道 + 大理道 + 常德道 + 重庆道</dd>
+      <dt></dt><dd>可租<b>马车</b>(80 元/人)或<b>观光车</b>(40 元/人),不想走就坐,休闲优先</dd>
+      <dt>14:00</dt><dd><b>民园广场</b>喝下午茶 · 洋楼咖啡馆多如牛毛,随便挑一家坐 1h</dd>
+      <dt>15:30</dt><dd><b>先农大院</b> · 五大道内保留最好的英式合院,免费拍照</dd>
+      <dt>16:30</dt><dd>打车 → <b>意式风情街</b>(意大利风情区)</dd>
+      <dt>17:00</dt><dd>意风区闲逛 · 马可波罗广场 · 但丁广场 · <b>梁启超故居</b>(可外看)</dd>
+      <dt>18:30</dt><dd><b>晚餐 · 意风区西餐 or 津菜</b>(见下方吃货块)</dd>
+      <dt>20:00</dt><dd><b>海河夜游</b>(重点) · 天津站前<b>大沽桥 / 北安桥</b>码头登船 · 单程 60 元 · 40min · 看解放桥 + 天津之眼 + 洋楼灯光</dd>
+      <dt>21:30</dt><dd>下船,打车回酒店</dd>
+    </dl>
+  </div>
+  <div class="eats">
+    <div class="eats-t">— 10.2 吃 什 么 —</div>
+    <ul>
+      <li><b>早午餐 · 津派早点</b></li>
+      <li>&nbsp;&nbsp;<b>南楼煎饼</b>(总店:南开区新华路) · 天津煎饼果子头号老字号,绿豆面皮 + 果篦儿</li>
+      <li>&nbsp;&nbsp;<b>杨姐煎饼</b>(和平区多家) · 五大道附近分店,现摊现吃</li>
+      <li>&nbsp;&nbsp;<b>大福来锅巴菜</b>(河北区) · 天津独有早点,绿豆面煎饼切条泡卤 · 配茶汤</li>
+      <li><b>五大道下午茶</b></li>
+      <li>&nbsp;&nbsp;<b>民园西里咖啡</b>(民园广场周边) · 洋楼里的咖啡,坐窗边看老建筑</li>
+      <li>&nbsp;&nbsp;<b>桂发祥麻花</b> · 十八街麻花老字号,买盒当伴手礼</li>
+      <li><b>意风区晚餐</b></li>
+      <li>&nbsp;&nbsp;<b>阿罗马西餐厅</b>(意风区) · 意大利菜正宗,人均 150,预约</li>
+      <li>&nbsp;&nbsp;<b>庆王府 · 津菜</b>(重庆道) · 老宅子改的津菜馆,老爆三 + 罾蹦鲤鱼</li>
+      <li>&nbsp;&nbsp;<b>红旗饭庄</b>(河北区) · 天津国宴级津菜老字号,人均 100</li>
+    </ul>
+  </div>
+  <div class="tip">住宿建议订<b>五大道 / 小白楼 / 意风区</b>附近,步行圈内景点密集。避开狗不理(游客陷阱,本地人不吃)。海河夜游国庆票紧张,建议官方公众号<b>提前 1 天</b>买 20:00 场次。</div>
+</section>
+
+<section class="card day">
+  <div class="day-head">
+    <div><div class="num">DAY 02</div><h3>古街 · 瓷房 · 滨江扫街</h3><div class="date">10月3日 · 周一 · 返程日</div></div>
+  </div>
+  <div class="wx">
+    <div class="wx-t">21°<small>/</small>12°<small>C</small></div>
+    <div class="wx-info"><div class="cond">天津 · 晴 · 舒适</div><b>穿搭:</b> 长袖 T + 薄外套,舒适逛街鞋。返程日,行李箱早退房存前台。</div>
+  </div>
+  <div class="metro"><b>古文化街</b> · <span class="line2">2号线</span> 东南角站 A 口 · 或酒店打车 10min。<br><b>瓷房子</b>(赤峰道 72 号) · <span class="line1">1号线</span> 营口道站 A 口 · 步行 5min。<br><b>滨江道</b> · <span class="line1">1号线</span> 营口道站 · 与瓷房子在同一片区,步行串联。<br><b>返高碑店</b> · <span class="line1">1号线</span> 或打车 → 天津西站 → 高铁。</div>
+  <div class="sec"><div class="sec-t">— 一 日 时 刻 —</div>
+    <dl class="itin">
+      <dt>08:30</dt><dd>起床,酒店吃早餐 · 或退房后到古文化街吃</dd>
+      <dt>09:30</dt><dd><b>行李寄存</b>前台,轻装出门</dd>
+      <dt>10:00</dt><dd><b>古文化街</b> · <b>天后宫</b>(妈祖庙,门票 15 元) · 泥人张 · 杨柳青年画 · <b>耳朵眼炸糕</b>吃货必打卡</dd>
+      <dt>11:30</dt><dd>古文化街东口<b>石头门坎素包</b>老店 · 天津素包子代表,配小米粥</dd>
+      <dt>12:30</dt><dd>打车 → <b>瓷房子</b>(赤峰道 72 号) · 门票 50 元 · 4 亿件瓷器碎片贴出的洋楼 · 外拍 15min,想进去参观再买票</dd>
+      <dt>13:30</dt><dd><b>滨江道 / 和平路</b>步行街 · 从瓷房子步行 5min · 老字号扎堆</dd>
+      <dt></dt><dd>·<b>桂发祥麻花总店</b> · <b>耳朵眼炸糕</b>营口道店 · <b>果仁张</b> · <b>老美华</b>老字号商场</dd>
+      <dt>14:30</dt><dd><b>午餐 · 津菜收官</b>(见下方吃货块)</dd>
+      <dt>16:00</dt><dd>回酒店取行李</dd>
+      <dt>16:30</dt><dd>打车/地铁 → 天津西站</dd>
+      <dt>17:30</dt><dd>高铁 <b>C2593 或类似</b> → 高碑店东 · 1h · 到家吃晚饭<br>自驾则 <b>16:30 出发</b>,避开返程高峰,2.5h 到家</dd>
+    </dl>
+  </div>
+  <div class="eats">
+    <div class="eats-t">— 10.3 吃 什 么 —</div>
+    <ul>
+      <li><b>古文化街早午餐</b></li>
+      <li>&nbsp;&nbsp;<b>石头门坎素包</b>(古文化街东口) · 天津老字号,豆腐 + 木耳 + 面筋馅,配<b>崩豆张</b>崩豆</li>
+      <li>&nbsp;&nbsp;<b>耳朵眼炸糕</b>(古文化街分店) · 糯米皮 + 红豆沙,一口一个</li>
+      <li>&nbsp;&nbsp;<b>茶汤李</b>(古文化街) · 龙嘴大铜壶冲糜子粉,老天津味</li>
+      <li><b>滨江道午餐 · 津菜收官</b></li>
+      <li>&nbsp;&nbsp;<b>白记水饺</b>(和平路) · 老字号,牛肉水饺一绝</li>
+      <li>&nbsp;&nbsp;<b>登瀛楼</b>(滨江道) · 百年津菜老店,老爆三 + 独面筋</li>
+      <li>&nbsp;&nbsp;<b>桂园餐厅</b>(重庆道) · 津派家常菜,红烧河豚 + 罾蹦鲤鱼</li>
+      <li><b>伴手礼</b> · 桂发祥麻花 · 果仁张 · 崩豆张 · 大福来锅巴菜(袋装)</li>
+    </ul>
+  </div>
+  <div class="tip">古文化街商业化,但<b>石头门坎 + 天后宫 + 泥人张</b>值得看。瓷房子外拍 5min 打卡即可,门票 50 元不建议进(内部一般)。国庆返程日<b>16:30 前必须上路</b>,自驾要卡准,晚半小时就堵到怀疑人生。</div>
+</section>
+
+<section class="footer-tips">
+  <h2>行前贴士</h2>
+  <div class="tip-grid">
+    <div class="tip-card"><h4>选 交 通</h4><p>轻装 2 日 <b>高铁</b>更省心(1h 直达),自驾适合想带很多伴手礼或者多人分摊。天津西站离市中心近,别买到滨海站(远)。</p></div>
+    <div class="tip-card"><h4>选 酒 店</h4><p>首选<b>五大道 / 小白楼 / 意风区</b>,步行圈景点全覆盖。避开滨海新区(距市区 30km+)。国庆预算 400-800 元档次可挑。</p></div>
+    <div class="tip-card"><h4>避 坑 提 醒</h4><p><b>狗不理不吃</b>(游客陷阱,88 元 8 个包子,本地人不去)。麻花买桂发祥或十八街正店,别买景区小店。海河夜游认<b>官方码头</b>,别信街头拉客。</p></div>
+    <div class="tip-card"><h4>穿 搭 · 天 气</h4><p>10 月初天津 <b>白天 20-22°C 夜 12-14°C</b>,一件薄外套 + 长袖足够。海河边晚风凉,记得穿。拍照日民国风/复古出片。</p></div>
+    <div class="tip-card"><h4>返 程 时 间</h4><p>10.3 是国庆返程日,自驾<b>16:30 前上路</b>,高铁<b>17:30 前那趟</b>,晚一小时可能延误 2-3h。宁早勿晚。</p></div>
+    <div class="tip-card"><h4>预 算 参 考</h4><p>2 人 2 日 · 高铁往返 240 元 · 酒店 800 元 · 吃 400 元 · 门票+游船 300 元 · 打车 150 元 · <b>合计约 1900 元</b>,自驾略贵一点(油费+过路+停车)。</p></div>
+  </div>
+</section>
+
+</div>
+<footer>津味 · 二日 · 2026 国庆 · 洋楼 · 海河 · 慢悠悠</footer>
+</body>
+</html>
